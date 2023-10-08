@@ -1,0 +1,31 @@
+body {
+    background: #2E4374;
+}
+
+.heading {
+    position: fixed;
+    left: 140px;
+    top: 220px;
+    width: 800px;
+    height: 162px;
+    flex-shrink: 0;
+    color: #B1B8F8;
+    font-family: Helvetica, sans-serif;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    }
+
+.btn {
+    position: fixed;
+    top: 600px;
+    left: 1000px;
+    color: #7C81AD;
+    font-family: Helvetica, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+}

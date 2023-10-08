@@ -1,0 +1,96 @@
+body {
+    background: #2E4374;
+}
+
+.heading {
+    position: fixed;
+    width: 660px;
+    height: 162px;
+    left: 140px;
+    top: 220px;
+    flex-shrink: 0;
+    color: #B1B8F8;
+    font-family: Helvetica, sans-serif;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.review-area {
+    position: fixed;
+    left: 900px;
+    top: 280px;
+    width: 314px;
+    height: 350px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    background: #7C81AD;
+    box-shadow: 6px 12px 10px 2px rgba(24, 35, 60, 0.20);
+}
+
+.btn {
+    position: fixed;
+    left: 1045px;
+    top: 650px;
+    width: 175px;
+    height: 84px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #E5C3A6;
+    box-shadow: 6px 12px 10px 2px rgba(24, 35, 60, 0.20);
+    border: none;
+    font-family: Helvetica, sans-serif;
+    font-size: 36px;
+    color: #FFF;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.review-box {
+    position: fixed;
+    left: 918px;
+    top: 315px;
+    width: 280px;
+    height: 300px;
+    background-color: transparent;
+    border: none; /* Remove the border */
+    outline: none; /* Remove the outline */
+    box-shadow: none; /* Remove any box shadow */
+    resize: none;
+    color: #FFF;
+    font-family: Helvetica, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+textarea::placeholder {
+    color: #B1B8F8;
+    font-family: Helvetica, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#result {
+    position: fixed;
+    bottom: 100px;
+    left: 860px;
+}
+
+/* .fadeInText {
+    opacity: 0; 
+    animation: fadeIn 8s ease-in-out forwards;
+}
+  @keyframes fadeIn {
+    from {
+      opacity: 0; 
+    }
+    to {
+      opacity: 1;
+    }
+  } */
