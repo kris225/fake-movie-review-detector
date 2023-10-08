@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Review Detector</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to the Movie Review Detector</h1>
+    <p>Enter a movie review below to check if it's real or fake:</p>
+    <form id="review-form">
+        <textarea id="review-input" name="review" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#review-form').submit(function(event) {
+                event.preventDefault();
+                var inputReview = $('#review-input').val();
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '/predict',
+                    data: {review: inputReview},
+                    success: function(response) {
+                        $('#result').html(response.result);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
