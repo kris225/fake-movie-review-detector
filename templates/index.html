@@ -2,15 +2,15 @@
 <html>
 <head>
     <title>Movie Review Detector</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index_styles.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Welcome to the Movie Review Detector</h1>
-    <p>Enter a movie review below to check if it's real or fake:</p>
+    <h1 class="heading">Review a Movie</h1>
     <form id="review-form">
-        <textarea id="review-input" name="review" rows="4" cols="50"></textarea><br><br>
-        <input type="submit" value="Submit">
+        <div class="review-area"></div>
+        <textarea id="review-input" name="review" rows="4" cols="50" class="review-box" placeholder="Enter the review..."></textarea><br><br>
+        <input type="submit" class="btn" value="Submit">
     </form>
     <div id="result"></div>
 
@@ -26,11 +26,53 @@
                     data: {review: inputReview},
                     success: function(response) {
                         $('#result').html(response.result);
+
                     }
                 });
             });
         });
+
+        
     </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#review-form').submit(function(event) {
+                event.preventDefault();
+                var inputReview = $('#review-input').val();
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '/predict',
+                    data: {review: inputReview},
+                    success: function(response) {
+                        $('#result').html(response.result);
+                        
+                        // Observe the resultContainer for changes
+                        observeResultContainer();
+                    }
+                });
+            });
+            
+            function observeResultContainer() {
+                var targetNode = document.getElementById('result');
+                var config = { childList: true };
+                
+                var observer = new MutationObserver(function(mutationsList) {
+                    for (var mutation of mutationsList) {
+                        if (mutation.type === 'childList' && mutation.target.textContent.trim() !== '') {
+                            // Add the animation class when text is added
+                            $('#result').addClass(response.fadeInText);
+                            observer.disconnect();
+                        }
+                    }
+                });
+                
+                observer.observe(targetNode, config);
+            }
+        });
+    </script> -->
 
 </body>
 </html>
+
