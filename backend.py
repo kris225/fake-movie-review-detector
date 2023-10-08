@@ -77,9 +77,9 @@ def predict():
     prediction = clf.predict(input_review_tfidf)
 
     if prediction == 'pos':
-        result = "The review was made by a Real Person."
+        result = "The review is Real"
     else:
-        result = "The review is a Fake."
+        result = "The review is Fake"
 
     return jsonify({'result': result})
 
