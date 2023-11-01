@@ -51,6 +51,8 @@ print("Classification Report:")
 print(classification_rep)
 
 
+# ... (Data preprocessing and model training code)
+
 def hindi_conversion(sentence):
     translator = Translator()
     w = sentence.split(" ")
@@ -75,9 +77,6 @@ def hindi_conversion(sentence):
             translation += i + " "
 
     return translation
-
-
-# ... (Data preprocessing and model training code)
 
 @app.route('/')
 def home():
