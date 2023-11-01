@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='team_styles.css') }}">
+</head>
+<body>
+
+    <div class="nav">
+        <a class="link" id="go-to-home">Home</a>
+        <a class="link" id="go-to-detectorA">Demo</a>
+        <a class="active-link" id="go-to-team">Team</a>
+    </div>
+
+    <div class="main">
+    <header>
+        <h1 class="title">Movie Review Detector</h1>
+    </header>
+    </div>
+
+    <div class="card-container">
+    <div class="card">
+        <h2>20BCE2083</h2>
+        <p>Megha J Bhimani</p>
+    </div>
+    <div class="card">
+        <h2>20BCE2335</h2>
+        <p>Gundimeda Krishna Prabhat</p>
+    </div>
+    <div class="card">
+        <h2>20BCE2589</h2>
+        <p>Mohamed Zaid</p>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script>
+            $('#go-to-home').click(function() {
+                window.location.href = '/';
+            });
+            $('#go-to-detectorA').click(function() {
+                window.location.href = '/detector';
+            });
+
+            $('#go-to-team').click(function() {
+                window.location.href = '/team';
+            });
+
+    </script>
+
+</body>
+</html>

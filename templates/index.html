@@ -1,39 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html  lang="en">
 <head>
-    <title>Movie Review Detector</title>
+    <title>Demo</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index_styles.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1 class="heading">Review a Movie</h1>
+
+    <div class="nav">
+        <a class="link" id="go-to-home">Home</a>
+        <a class="active-link" id="go-to-detectorA">Demo</a>
+        <a class="link" id="go-to-team">Team</a>
+    </div>
+
+    <div class="main">
+    <header>
+        <h1 class="title">Movie Review Detector</h1>
+    </header>
+    </div>
+
+    <div class="detector">
     <form id="review-form">
-        <div class="review-area"></div>
-        <textarea id="review-input" name="review" rows="4" cols="50" class="review-box" placeholder="Enter the review..."></textarea><br><br>
-        <input type="submit" class="btn" value="Submit">
+        <div id="result" class="resultText">Enter a review to test</div>
+        <input type="text" autocomplete="off" id="review-input" name="review" rows="4" cols="50" class="review-box" placeholder=""></input><br><br>
+        </div>
+    <div class="detector2"><input type="submit" class="button-rectangle" value="Test">
     </form>
-    <div id="result"></div>
+
+    </div>
+
+    <div class="footer">
+        <button class="button-round">?</button>
+    </div>
 
     <script>
-        $(document).ready(function() {
-            $('#review-form').submit(function(event) {
-                event.preventDefault();
-                var inputReview = $('#review-input').val();
-                
-                $.ajax({
-                    type: 'POST',
-                    url: '/predict',
-                    data: {review: inputReview},
-                    success: function(response) {
-                        $('#result').html(response.result);
+        $('#go-to-home').click(function() {
+                window.location.href = '/';
+            });
 
+        $('#go-to-team').click(function() {
+                window.location.href = '/team';
+            });
+
+
+    $(document).ready(function() {
+        $('#review-form').submit(function(event) {
+            event.preventDefault();
+            var inputReview = $('#review-input').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/predict',
+                data: {review: inputReview},
+                success: function(response) {
+                    var resultElement = $('#result');
+                    resultElement.html(response.result);
+
+                    // Check the response and change text color accordingly
+                    if (response.result === "The review is Real!") {
+                        resultElement.css('color', 'green');
+                    } else if (response.result === "The review was a Fake!") {
+                        resultElement.css('color', '#D02A2A');
+                    } else {
+                        // Reset the text color to default if it's neither of the above
+                        resultElement.css('color', 'black');
                     }
-                });
+                }
             });
         });
+    });
+</script>
 
-        
-    </script>
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {

@@ -1,17 +1,45 @@
-<!-- homepage.html -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Movie Review Detector - Home</title>
+    <title>Home</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <header>
-        <h1 class="heading">Movie Review Detector</h1>
-    </header>
-    <div class="container">
-        <a href="/detector" class="btn">Go to Detector</a>
+    <div class="nav">
+        <a class="active-link" id="go-to-home">Home</a>
+        <a class="link" id="go-to-detectorA">Demo</a>
+        <a class="link" id="go-to-team">Team</a>
     </div>
+
+    <div class="main">
+    <header>
+        <h1 class="title">Movie Review Detector</h1>
+    </header>
+    </div>
+    <div class="go-to-page">
+        <button class="button-rectangle" id="go-to-detectorB">Start</button>
+        </div>
+    <div class="footer">
+        <button class="button-round">?</button>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+            $('#go-to-detectorA').click(function() {
+                window.location.href = '/detector';
+            });
+
+            $('#go-to-home').click(function() {
+                window.location.href = '/';
+            });
+
+            $('#go-to-team').click(function() {
+                window.location.href = '/team';
+            });
+
+            $('#go-to-detectorB').click(function() {
+                window.location.href = '/detector';
+            });
+    </script>
 </body>
 </html>
