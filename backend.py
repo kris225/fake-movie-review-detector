@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import classification_report, accuracy_score
 from flask import Flask, request, render_template, jsonify
+from googletrans import Translator
 
 app = Flask(__name__, static_url_path='/static', static_folder='static')
 
@@ -50,6 +51,31 @@ print("Classification Report:")
 print(classification_rep)
 
 
+def hindi_conversion(sentence):
+    translator = Translator()
+    w = sentence.split(" ")
+    words = []
+    for i in w:
+        translated_word = ""
+        translation_lang = translator.detect(i).lang
+        if translation_lang == "hi":
+            translated_word = translator.translate(i, src=translation_lang, dest='hi').text
+        else:
+            translated_word = i
+        words.append(translated_word)
+    print(words)
+    translation = ""
+    for i in words:
+        detected_language = translator.detect(i).lang
+
+        # Translate to English
+        if detected_language != 'en':
+            translation += translator.translate(i, src=detected_language, dest='en').text + " "
+        else:
+            translation += i + " "
+
+    return translation
+
 
 # ... (Data preprocessing and model training code)
 
@@ -57,9 +83,15 @@ print(classification_rep)
 def home():
     return render_template('homepage.html')
 
+
 @app.route('/detector')
 def detector():
     return render_template('index.html')
+
+
+@app.route('/team')
+def team():
+    return render_template('team.html')
 
 
 @app.route('/predict', methods=['POST'])
@@ -77,11 +109,36 @@ def predict():
     prediction = clf.predict(input_review_tfidf)
 
     if prediction == 'pos':
-        result = "The review is Real"
+        result = "The review is Real!"
     else:
-        result = "The review is Fake"
+        result = "The review was a Fake!"
 
     return jsonify({'result': result})
+
+
+@app.route('/detect_language', methods=['POST'])
+def detect_language():
+    input_review = request.form['review']
+
+    # Perform language detection (replace with your actual detection logic)
+    detected_language = detect_language(input_review)  # Implement this function
+
+    return jsonify({'language': detected_language})
+
+
+@app.route('/translate_and_classify', methods=['POST'])
+def translate_and_classify():
+    input_review = request.form['review']
+
+    # Use the translation function
+    translated_review = hindi_conversion(input_review)
+    print(translated_review)
+
+    # Use the prediction function on the translated text
+    prediction_result = predict(translated_review)
+
+    return jsonify({'translated_review': translated_review, 'prediction': prediction_result})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
