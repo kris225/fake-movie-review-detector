@@ -135,3 +135,25 @@ body {
 .custom-red {
         color: #D02A2A;
     }
+
+.card-container {
+    padding: 48px 96px;
+    display: flex; /* Use flexbox for the layout */
+    justify-content: space-between; /* Space the cards evenly */
+}
+
+.card {
+    width: 400px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #DFE5F0;
+    box-shadow: 2px 7px 12px 3px rgba(46, 67, 116, 0.19);
+    color: #2E4374;
+    text-align: center;
+    font-family: Roboto Mono, monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+}

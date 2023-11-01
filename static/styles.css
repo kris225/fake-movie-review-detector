@@ -1,31 +1,89 @@
 body {
-    background: #2E4374;
+    background: #DFE5F0;
 }
 
-.heading {
-    position: fixed;
-    left: 140px;
-    top: 220px;
-    width: 800px;
-    height: 162px;
-    flex-shrink: 0;
-    color: #B1B8F8;
-    font-family: Helvetica, sans-serif;
+.link {
+    color: #2E4374;
+    text-align: center;
+    font-family: Roboto Mono, monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    padding: 15px 30px;
+}
+
+.active-link {
+    color: #2E4374;
+    text-align: center;
+    font-family: Roboto Mono, monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 15px 30px;
+}
+
+.nav {
+    padding: 20px;
+}
+
+.title {
+    color: #2E4374;
+    text-align: center;
+    font-family: Raleway, sans-serif;
     font-size: 96px;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
-    }
+    width: 800px;
+}
 
-.btn {
-    position: fixed;
-    top: 600px;
-    left: 1000px;
-    color: #7C81AD;
-    font-family: Helvetica, sans-serif;
-    font-size: 36px;
+.button-rectangle {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 12px;
+    background: #DFE5F0;
+    box-shadow: 2px 7px 12px 3px rgba(46, 67, 116, 0.19);color: #2E4374;
+    text-align: center;
+    font-family: Roboto Mono, monospace;
+    font-size: 20px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 300;
     line-height: normal;
-    text-decoration: none;
+}
+
+.button-round {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 40px;
+    background: #DFE5F0;
+    box-shadow: 2px 7px 12px 3px rgba(46, 67, 116, 0.19);
+    color: #2E4374;
+    text-align: center;
+    font-family: Roboto Mono, monospace;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;}
+
+.main {
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.go-to-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 198px 48px 0 0;
 }
