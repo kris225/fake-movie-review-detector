@@ -48,15 +48,27 @@ body {
 
 .detector {
     padding-top: 120px;
+    padding-right: 64px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.detector2 {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.langSelect {
+    margin-top: 48px;
+}
+
 .footer {
     display: flex;
     justify-content: flex-end;
-    padding: 240px 48px 0 0;
+    padding: 240px 24px 0 0;
 }
 
 .button-rectangle {
@@ -114,6 +126,31 @@ body {
     text-align: center;
 }
 
+.lang-box {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.24px solid #000;
+    border-bottom-color: #2E4374;
+    text-align: center;
+    width: 100px;
+    color: #2E4374;
+    font-family: Roboto Mono, monospace;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    padding: 15px 30px;
+}
+
+.lang-box:focus {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.64px solid #000;
+    outline: none;
+    border-bottom-color: #2E4374;
+    text-align: center;
+}
+
 .resultText {
     color: #2E4374;
     text-align: center;
@@ -125,13 +162,53 @@ body {
     padding: 15px 30px;
 }
 
-.detector2 {
-    padding-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .custom-red {
         color: #D02A2A;
-    }
+}
+
+select {
+    appearance: none;
+    outline: none;
+    border: 0;
+    box-shadow: none;
+    flex: 1;
+    padding: 0 1em;
+    color: #2E4374;
+    background-color: #DFE5F0;
+    background-image: none;
+    cursor: pointer;
+    font-family: Roboto Mono, monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    text-align: justify;
+}
+      
+select::-ms-expand {
+    display: none;
+}
+      
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+}
+
+.select:hover::after {
+    color: #f39c12;
+}
