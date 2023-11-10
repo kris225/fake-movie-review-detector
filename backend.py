@@ -51,21 +51,18 @@ print("Classification Report:")
 print(classification_rep)
 
 
-# ... (Data preprocessing and model training code)
-
-def hindi_conversion(sentence):
+def language_conversion(sentence, language):
     translator = Translator()
     w = sentence.split(" ")
     words = []
     for i in w:
         translated_word = ""
         translation_lang = translator.detect(i).lang
-        if translation_lang == "hi":
-            translated_word = translator.translate(i, src=translation_lang, dest='hi').text
+        if translation_lang == language:
+            translated_word = translator.translate(i, src=translation_lang, dest=language).text
         else:
             translated_word = i
         words.append(translated_word)
-    print(words)
     translation = ""
     for i in words:
         detected_language = translator.detect(i).lang
@@ -77,6 +74,9 @@ def hindi_conversion(sentence):
             translation += i + " "
 
     return translation
+
+
+# ... (Data preprocessing and model training code)
 
 @app.route('/')
 def home():
@@ -115,22 +115,12 @@ def predict():
     return jsonify({'result': result})
 
 
-@app.route('/detect_language', methods=['POST'])
-def detect_language():
-    input_review = request.form['review']
-
-    # Perform language detection (replace with your actual detection logic)
-    detected_language = detect_language(input_review)  # Implement this function
-
-    return jsonify({'language': detected_language})
-
-
 @app.route('/translate_and_classify', methods=['POST'])
 def translate_and_classify():
     input_review = request.form['review']
-
+    input_language = request.form['languauge']
     # Use the translation function
-    translated_review = hindi_conversion(input_review)
+    translated_review = language_conversion(input_review, input_language)
     print(translated_review)
 
     # Use the prediction function on the translated text
